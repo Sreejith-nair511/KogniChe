@@ -53,7 +53,12 @@ docs/submission/NEXORA_print.html
 # ── Zip (source already extracted) ───────────────────────────────────────────
 # Recommendations.zip ← keep it — it's the supplied dataset artifact
 
-# ── Python test helpers ───────────────────────────────────────────────────────
+# ── Word lock/temp files ──────────────────────────────────────────────────────
+~$*.docx
+~$*.xlsx
+~$*.pptx
+~WRL*.tmp
+*.tmp
 run_eval_for_docs.py
 inspect_db.py
 check_schema.py
