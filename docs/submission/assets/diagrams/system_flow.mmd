@@ -1,0 +1,40 @@
+flowchart TD
+    Q["User Query\n'adventure package Coorg under 20,000'"]
+    LD["Language Detection\nResult: en-IN"]
+    IC["Intent Classification\nResult: adventure_package"]
+    CE["Constraint Extraction\ncity_id · budget_max=20000\nduration_max=4 · entity_type=package"]
+    HF["Hard Filter (SQL)\nstatus=active · city_id · price <= 20000\nduration_days <= 4\n-- N eligible packages --"]
+    QE["Query Embedding\nmultilingual-mpnet-768d\nnormalized vector"]
+    SR["Semantic Retrieval\nFAISS top-150\ncosine similarity"]
+    FUSE["Candidate Fusion\nsemantic intersect eligible\n+ popularity fallback if sparse\n-- 50 candidates --"]
+    PS["Profile Scoring\nexplicit prefs · travel_style\ncategory_affinity · budget_band"]
+    BS["Behaviour Scoring\nliked · saved · disliked\nentity_type_affinity"]
+    CS["Collaborative Signal\nsimilar users by style+band\nshared like/save/book"]
+    RS["Rating and Popularity\nguest_score / popularity_score\ntier proxy for packages"]
+    COMBINE["Weighted Score\nfinal = sum(weight_i x score_i)\n+ session_score additive"]
+    HARD_PENALTY["Dislike Penalty\ndisliked items score x 0.1"]
+    SORT["Sort by final_score DESC\ntop-50 ranked"]
+    MMR["MMR Diversification\nlambda=0.7\ncategory + entity_type\ntop-10 diverse"]
+    EXP["Explanation Generation\nreasons[] why_this why_now\nconfidence match_percentage"]
+    RESP["SearchResponse\n10 results · profile · session\nretrieval_telemetry"]
+
+    Q --> LD --> IC --> CE
+    CE --> HF
+    CE --> QE
+    QE --> SR
+    HF --> FUSE
+    SR --> FUSE
+    FUSE --> PS
+    FUSE --> BS
+    FUSE --> CS
+    FUSE --> RS
+    PS --> COMBINE
+    BS --> COMBINE
+    CS --> COMBINE
+    RS --> COMBINE
+    COMBINE --> HARD_PENALTY --> SORT --> MMR --> EXP --> RESP
+
+    style Q fill:#1a2744,color:#a5f3c8,stroke:#a5f3c8
+    style RESP fill:#1a2744,color:#a5f3c8,stroke:#a5f3c8
+    style HF fill:#2a1a1a,color:#fca5a5,stroke:#ef4444
+    style HARD_PENALTY fill:#2a1a1a,color:#fca5a5,stroke:#ef4444

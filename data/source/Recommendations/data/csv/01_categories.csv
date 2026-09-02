@@ -1,0 +1,71 @@
+category_id,code,label,parent_category_id,applies_to,updated_at
+cat_a7ff83bf,heritage,Heritage & Monuments,,poi,2026-08-18T10:00:00+05:30
+cat_68482803,heritage_fort,Forts & Palaces,cat_a7ff83bf,poi,2026-08-18T10:00:00+05:30
+cat_54243992,heritage_temple,Temples & Shrines,cat_a7ff83bf,poi,2026-08-18T10:00:00+05:30
+cat_c03ee00a,heritage_ruins,Archaeological sites,cat_a7ff83bf,poi,2026-08-18T10:00:00+05:30
+cat_fce0bd94,heritage_stepwell,Stepwells & water architecture,cat_a7ff83bf,poi,2026-08-18T10:00:00+05:30
+cat_21c117dd,nature,Nature & Outdoors,,poi,2026-08-18T10:00:00+05:30
+cat_87a6232b,nature_lake,Lakes & Backwaters,cat_21c117dd,poi,2026-08-18T10:00:00+05:30
+cat_fda74089,nature_hill,Hills & Viewpoints,cat_21c117dd,poi,2026-08-18T10:00:00+05:30
+cat_e8ba72de,nature_waterfall,Waterfalls,cat_21c117dd,poi,2026-08-18T10:00:00+05:30
+cat_dbd7c6e8,nature_garden,Gardens & Parks,cat_21c117dd,poi,2026-08-18T10:00:00+05:30
+cat_8f5457b4,nature_desert,Desert & Dunes,cat_21c117dd,poi,2026-08-18T10:00:00+05:30
+cat_7d9256bc,wildlife,Wildlife,,poi,2026-08-18T10:00:00+05:30
+cat_6b229a53,wildlife_sanctuary,Sanctuaries,cat_7d9256bc,poi,2026-08-18T10:00:00+05:30
+cat_db384ce5,wildlife_safari,Safari,cat_7d9256bc,poi,2026-08-18T10:00:00+05:30
+cat_200acca0,wildlife_birding,Birding spots,cat_7d9256bc,poi,2026-08-18T10:00:00+05:30
+cat_fcf0754f,museum,Museums & Galleries,,poi,2026-08-18T10:00:00+05:30
+cat_a6c4c438,museum_history,History museums,cat_fcf0754f,poi,2026-08-18T10:00:00+05:30
+cat_a74a90c1,museum_art,Art galleries,cat_fcf0754f,poi,2026-08-18T10:00:00+05:30
+cat_648738e2,museum_science,Science centres,cat_fcf0754f,poi,2026-08-18T10:00:00+05:30
+cat_7bb74cf2,food,Food & Drink,,mixed,2026-08-18T10:00:00+05:30
+cat_a01f3db5,food_street,Street food trails,cat_7bb74cf2,poi,2026-08-18T10:00:00+05:30
+cat_34ac5ade,food_fine,Fine dining,cat_7bb74cf2,poi,2026-08-18T10:00:00+05:30
+cat_260a51dc,food_cooking,Cooking classes,cat_7bb74cf2,poi,2026-08-18T10:00:00+05:30
+cat_b591c643,food_market,Food markets,cat_7bb74cf2,poi,2026-08-18T10:00:00+05:30
+cat_6e95526a,adventure,Adventure,,mixed,2026-08-18T10:00:00+05:30
+cat_51e6a700,adventure_trek,Trekking,cat_6e95526a,poi,2026-08-18T10:00:00+05:30
+cat_5c6b9b9e,adventure_water,Water sports,cat_6e95526a,poi,2026-08-18T10:00:00+05:30
+cat_0bdaba79,adventure_air,Paragliding & ballooning,cat_6e95526a,poi,2026-08-18T10:00:00+05:30
+cat_12271927,adventure_cycle,Cycling routes,cat_6e95526a,poi,2026-08-18T10:00:00+05:30
+cat_c50a2802,shopping,Shopping,,mixed,2026-08-18T10:00:00+05:30
+cat_8c7f3fd2,shopping_bazaar,Bazaars,cat_c50a2802,poi,2026-08-18T10:00:00+05:30
+cat_70320c9b,shopping_craft,Craft workshops,cat_c50a2802,poi,2026-08-18T10:00:00+05:30
+cat_f2c80643,shopping_mall,Malls,cat_c50a2802,poi,2026-08-18T10:00:00+05:30
+cat_5b731bae,nightlife,Nightlife,,poi,2026-08-18T10:00:00+05:30
+cat_ae5149e1,nightlife_live,Live music,cat_5b731bae,poi,2026-08-18T10:00:00+05:30
+cat_3ecd28b3,nightlife_bar,Bars & lounges,cat_5b731bae,poi,2026-08-18T10:00:00+05:30
+cat_c0c10f07,beach,Beaches,,poi,2026-08-18T10:00:00+05:30
+cat_857ee77a,beach_quiet,Quiet beaches,cat_c0c10f07,poi,2026-08-18T10:00:00+05:30
+cat_db94a794,beach_active,Active beaches,cat_c0c10f07,poi,2026-08-18T10:00:00+05:30
+cat_09439f0a,religious,Religious & Pilgrimage,,poi,2026-08-18T10:00:00+05:30
+cat_63e0475b,religious_pilgrim,Pilgrimage circuits,cat_09439f0a,poi,2026-08-18T10:00:00+05:30
+cat_7e99ea32,religious_ghats,Ghats & riverfronts,cat_09439f0a,poi,2026-08-18T10:00:00+05:30
+cat_f07c504b,wellness,Wellness,,mixed,2026-08-18T10:00:00+05:30
+cat_7073a53a,wellness_ayur,Ayurveda,cat_f07c504b,poi,2026-08-18T10:00:00+05:30
+cat_829c3404,wellness_yoga,Yoga retreats,cat_f07c504b,poi,2026-08-18T10:00:00+05:30
+cat_7201ae9b,viewpoint,Viewpoints,,poi,2026-08-18T10:00:00+05:30
+cat_1c38c168,pkg_adventure,Adventure packages,,package,2026-08-18T10:00:00+05:30
+cat_4d3566a6,pkg_honeymoon,Honeymoon packages,,package,2026-08-18T10:00:00+05:30
+cat_fc3da75c,pkg_pilgrimage,Pilgrimage packages,,package,2026-08-18T10:00:00+05:30
+cat_3949635c,pkg_family,Family packages,,package,2026-08-18T10:00:00+05:30
+cat_7cd8d834,pkg_heritage,Heritage packages,,package,2026-08-18T10:00:00+05:30
+cat_be3fdaec,pkg_wellness,Wellness packages,,package,2026-08-18T10:00:00+05:30
+cat_c6b26893,pkg_wildlife,Wildlife packages,,package,2026-08-18T10:00:00+05:30
+cat_9ce9638b,pkg_food,Food trail packages,,package,2026-08-18T10:00:00+05:30
+cat_00f03499,exp_accommodation,Accommodation,,expense,2026-08-18T10:00:00+05:30
+cat_980384a2,exp_hotel,Hotel,cat_00f03499,expense,2026-08-18T10:00:00+05:30
+cat_a5e0a5ea,exp_homestay,Homestay,cat_00f03499,expense,2026-08-18T10:00:00+05:30
+cat_ed65c7bc,exp_transport,Transport,,expense,2026-08-18T10:00:00+05:30
+cat_a36e0dd1,exp_flight,Flights,cat_ed65c7bc,expense,2026-08-18T10:00:00+05:30
+cat_b6dec909,exp_local_transport,Local transport,cat_ed65c7bc,expense,2026-08-18T10:00:00+05:30
+cat_5bbd66c6,exp_fuel,Fuel & tolls,cat_ed65c7bc,expense,2026-08-18T10:00:00+05:30
+cat_14c34ac1,exp_food,Food,,expense,2026-08-18T10:00:00+05:30
+cat_9359474d,exp_restaurant,Restaurants,cat_14c34ac1,expense,2026-08-18T10:00:00+05:30
+cat_f5ac6379,exp_groceries,Groceries,cat_14c34ac1,expense,2026-08-18T10:00:00+05:30
+cat_bf6740a1,exp_activities,Activities,,expense,2026-08-18T10:00:00+05:30
+cat_d2ab76cb,exp_tickets,Entry tickets,cat_bf6740a1,expense,2026-08-18T10:00:00+05:30
+cat_d31569f3,exp_guide,Guide fees,cat_bf6740a1,expense,2026-08-18T10:00:00+05:30
+cat_e09b83be,exp_shopping,Shopping,,expense,2026-08-18T10:00:00+05:30
+cat_100b876d,exp_fees,Fees & charges,,expense,2026-08-18T10:00:00+05:30
+cat_07434c9a,exp_misc,Miscellaneous,,expense,2026-08-18T10:00:00+05:30

@@ -1,0 +1,105 @@
+flowchart TD
+    subgraph FE["Frontend — Next.js"]
+        UI["NEXORA UI\n(Search · Results · Profile · Evaluation)"]
+    end
+
+    subgraph API["API Layer — FastAPI"]
+        SEARCH["/search"]
+        INTERACT["/interactions"]
+        PROFILE_API["/profile/{id}"]
+        EVAL_API["/evaluation/summary"]
+        HEALTH["/health"]
+    end
+
+    subgraph QU["Query Understanding"]
+        LANG["Language Detection\n(langdetect · BCP-47)"]
+        INTENT["Intent Classification\n(budget_stay · adventure_package · etc.)"]
+        CONSTRAINT["Constraint Extraction\n(city · budget · star · duration · language)"]
+    end
+
+    subgraph HYBRID["Hybrid Retrieval"]
+        direction LR
+        SEMANTIC["Semantic Vector Retrieval\nFAISS · multilingual-mpnet-768d"]
+        STRUCT["Structured Hard Filters\nSQL · city · budget · star · duration"]
+        FUSION["Candidate Fusion\n(set intersection + popularity fallback)"]
+        SEMANTIC --> FUSION
+        STRUCT --> FUSION
+    end
+
+    subgraph PERSONALIZE["Personalization Layer"]
+        PROFILE["User Profile Service\nexplicit prefs · interaction history\nDNA dimensions · maturity class"]
+        SESSION["Session Intelligence\nrecent likes · saves · dislikes\nshort-term intent"]
+        COLLAB["Collaborative Signal\nsimilar users · shared interactions"]
+    end
+
+    subgraph RANK["Ranking & Diversity"]
+        RERANK["Personalized Reranker\n7-signal weighted score\nsemantic·profile·behaviour\ncollaborative·rating·popularity·diversity"]
+        MMR["MMR Diversification\nλ=0.7 · category diversity"]
+    end
+
+    subgraph EXPLAIN["Explanation Engine"]
+        WHY["Why This\nquery·profile·behaviour\nconstraint·rating evidence"]
+        WHYNOW["Why Now\nsession-triggered reasons"]
+        CONF["Confidence Band\nHIGH · MEDIUM · LOW"]
+    end
+
+    subgraph DATA["Data Layer"]
+        APS04[("APS-04.db\nSQLite · read-only\n28,630 rows · 15 tables")]
+        RUNTIME[("Runtime DB\nSQLite · writeable\nsessions · interactions\nprofile cache")]
+        FAISS[("FAISS Index\n1,260 vectors · 768d\nnormalized cosine")]
+        EMBED["Embedding Model\nparaphrase-multilingual-\nmpnet-base-v2"]
+    end
+
+    subgraph EVAL["Evaluation Engine"]
+        EVALQ["eval_queries\n120 queries · 4 languages"]
+        LABELS["eval_relevance_labels\n3,600 graded labels (0–3)"]
+        METRICS["Precision@K · NDCG@K\nRecall@10 · MRR\n4 model comparison"]
+    end
+
+    subgraph FEEDBACK["Feedback Loop"]
+        STORE["Store Interaction\nruntime_interactions"]
+        UPDATE["Update Session\n+ Invalidate Profile Cache"]
+        REBUILD["Rebuild Profile\n+ Rerank"]
+        DELTA["Rank Movement\nrank_changes[]"]
+    end
+
+    UI -->|"POST /search"| SEARCH
+    UI -->|"POST /interactions"| INTERACT
+    UI -->|"GET /profile"| PROFILE_API
+    UI -->|"GET /evaluation/summary"| EVAL_API
+
+    SEARCH --> QU
+    QU --> HYBRID
+    HYBRID --> PERSONALIZE
+    PERSONALIZE --> RANK
+    RANK --> EXPLAIN
+    EXPLAIN -->|SearchResponse| UI
+
+    INTERACT --> FEEDBACK
+    FEEDBACK --> STORE
+    STORE --> UPDATE
+    UPDATE --> REBUILD
+    REBUILD --> DELTA
+    DELTA -->|InteractionResponse| UI
+
+    APS04 --> STRUCT
+    APS04 --> PROFILE
+    FAISS --> SEMANTIC
+    EMBED -.->|"encode at query time"| SEMANTIC
+    RUNTIME --> SESSION
+    RUNTIME --> STORE
+
+    EVALQ --> METRICS
+    LABELS --> METRICS
+    METRICS --> EVAL_API
+
+    style FE fill:#1a1f36,color:#a5f3c8,stroke:#a5f3c8
+    style API fill:#1a2744,color:#a5f3c8,stroke:#4a6fa8
+    style QU fill:#1a2744,color:#e2e8f0,stroke:#4a6fa8
+    style HYBRID fill:#1a2744,color:#e2e8f0,stroke:#4a6fa8
+    style PERSONALIZE fill:#1a3344,color:#e2e8f0,stroke:#4a6fa8
+    style RANK fill:#1a2744,color:#e2e8f0,stroke:#4a6fa8
+    style EXPLAIN fill:#1a2744,color:#e2e8f0,stroke:#4a6fa8
+    style DATA fill:#1a1f2e,color:#a5f3c8,stroke:#3a5a78
+    style EVAL fill:#1a1f2e,color:#a5f3c8,stroke:#3a5a78
+    style FEEDBACK fill:#1a2e1a,color:#a5f3c8,stroke:#3a783a

@@ -1,0 +1,60 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+*.egg
+
+# ── Secrets & environment ──────────────────────────────────────────────────────
+.env
+*.env.local
+# Keep .env.example (it has no secrets)
+!.env.example
+
+# ── Node / frontend ────────────────────────────────────────────────────────────
+node_modules/
+.next/
+.pnpm-store/
+frontend/nexora/.next/
+frontend/nexora/node_modules/
+
+# ── Editor / OS ───────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/settings.json
+.idea/
+
+# ── Runtime DB (generated — not source data) ──────────────────────────────────
+data/runtime/nexora_runtime.db
+
+# ── Keep vector index (small — 4MB) ──────────────────────────────────────────
+# data/runtime/vector_index/   ← included (3.7 MB .index + 0.3 MB .pkl)
+
+# ── HuggingFace model cache (large, re-downloadable) ─────────────────────────
+*.safetensors
+*.bin
+# Keep sentence-transformers config files (small JSON)
+
+# ── Temp compile artefacts ────────────────────────────────────────────────────
+docs/submission/NEXORA_combined.md
+docs/submission/NEXORA_combined.html
+docs/submission/NEXORA_print.html
+
+# ── Zip (source already extracted) ───────────────────────────────────────────
+# Recommendations.zip ← keep it — it's the supplied dataset artifact
+
+# ── Python test helpers ───────────────────────────────────────────────────────
+run_eval_for_docs.py
+inspect_db.py
+check_schema.py
+test_e2e.py

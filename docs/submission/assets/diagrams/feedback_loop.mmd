@@ -1,0 +1,15 @@
+flowchart LR
+    ACT["User Action\nlike · save · dislike · click"]
+    STORE["Store Interaction\ninteraction_id · user_id · session_id\nentity_id · type · position · query"]
+    SESS["Update Session Profile\nsession_preferences add weight\ntype-level signal update"]
+    INVAL["Invalidate Profile Cache\nforce rebuild on next request"]
+    REBUILD["Rebuild User Profile\nsource + runtime interactions\nrecompute DNA · maturity · affinities"]
+    RERANK["Re-run Ranking\nsame query + updated profile + session\nnew ranked list"]
+    DELTA["Compute Rank Changes\nprev_rank vs new_rank\ndirection · rank_delta"]
+    RETURN["InteractionResponse\nrecorded · rank_changes[]\nupdated recommendations\nprofile_update · dna_after"]
+
+    ACT --> STORE --> SESS --> INVAL --> REBUILD --> RERANK --> DELTA --> RETURN
+
+    style ACT fill:#1a2744,color:#a5f3c8,stroke:#a5f3c8
+    style RETURN fill:#1a2744,color:#a5f3c8,stroke:#a5f3c8
+    style REBUILD fill:#1a3344,color:#e2e8f0,stroke:#4a6fa8

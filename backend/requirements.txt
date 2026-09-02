@@ -1,0 +1,10 @@
+fastapi==0.115.7
+uvicorn[standard]==0.34.0
+pydantic==2.13.3
+pydantic-settings==2.8.0
+sentence-transformers==5.3.0
+faiss-cpu==1.10.0
+numpy==2.3.5
+langdetect==1.0.9
+aiosqlite==0.21.0
+httpx==0.28.1
